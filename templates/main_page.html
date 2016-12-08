@@ -1,0 +1,21 @@
+{% extends 'static_page.html' %}
+
+{% block header %}Расписание боев{% endblock %}
+
+{% block title %}Ближайшие бои{% endblock %}
+
+
+{% block body %}
+    <ul>
+    {% for fight in fights %}
+        <li><a href="{% url 'fight_url' fight.id %}">{{ fight.title }}</a></li>
+        {% if fight.title == 'Деонтей Уайлдер - Александр Поветкин' %}
+            {% include 'fight_description.html' with fight=fight %}
+        {% else %}
+            {% include 'No_date.html' with fight=fight %}
+        {% endif %}
+    {% empty %}
+        Пустой список
+    {% endfor %}
+    </ul>
+{% endblock %}
