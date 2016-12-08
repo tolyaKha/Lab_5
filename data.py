@@ -5,4 +5,5 @@ fights = [
     {'title': 'Мурат Гассиев - Денис Лебедев', 'id': 4}
     ]
 
+
 fights_dict = {val.get('id'): val for val in fights}
